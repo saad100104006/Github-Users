@@ -37,20 +37,12 @@ class MovieDetailViewModelTest {
     @get:Rule
     var rxJavaRule: TestRule = TestRxJavaRule()
     @Mock
-    private lateinit var movieServiceApi: ApiService
-    @Mock
     private lateinit var favoriteDao: UserDao
     @Mock
     lateinit var lifecycleOwner: LifecycleOwner
     private lateinit var repository: SearchRepository
-/*    private lateinit var movie: Movie
-    private lateinit var movieGenre: MovieGenre
-    private lateinit var movieResponse: MovieResponse*/
     var lifecycle: Lifecycle? = null
     lateinit var viewModel: SearchViewModel
-    var id = 1
-    var vote_count = 50
-    var popularity = 7
     lateinit var user:UserDetails
 
     @Mock
@@ -63,8 +55,8 @@ class MovieDetailViewModelTest {
         MockitoAnnotations.initMocks(this)
         lifecycle = LifecycleRegistry(lifecycleOwner)
 
-       user  = UserDetails(User("",1,""), Note("",""), Profile("","",
-      "","","",1,1))
+       user  = UserDetails(User("abc",1,"testurl"), Note("abc","xyz"), Profile("abc","abc",
+      "","","abc@gmail.com",1,1))
 
         repository = SearchRepository(favoriteDao)
         viewModel = SearchViewModel(repository)
@@ -72,21 +64,20 @@ class MovieDetailViewModelTest {
 
     @Test
     fun `Verify livedata values changes on event`() {
-        assertNotNull(viewModel.updateSearchQuery("aaa"))
+        assertNotNull(viewModel.updateSearchQuery("testQuery"))
         viewModel.searchQueryLD.observeForever(observer)
         viewModel.updateSearchQuery("")
-        verify(observer).onChanged("aaa")
+        verify(observer).onChanged("testQuery")
     }
 
 
     @Test
-    fun test_movie_details() {
-        `when`(favoriteDao.searchUser("")).thenReturn(listOf(user))
-        viewModel.updateSearchQuery("")
+    fun test_search() {
+        `when`(favoriteDao.searchUser("testQuery")).thenReturn(listOf(user))
+        viewModel.updateSearchQuery("testQuery")
         viewModel.searchQueryLD.value.let {
-           assertTrue(it == "id")
+           assertTrue(it == "testQuery")
         }
-
     }
 
 }

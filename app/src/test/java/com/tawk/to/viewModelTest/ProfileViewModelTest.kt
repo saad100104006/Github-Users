@@ -43,8 +43,7 @@ class ProfileViewModelTest {
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
-   // @get:Rule
-    //var rxJavaRule: TestRule = TestRxJavaRule()
+
     @Mock
     private lateinit var movieServiceApi: ApiService
 
@@ -67,16 +66,10 @@ class ProfileViewModelTest {
     private lateinit var api: Api
 
     private lateinit var repository: ProfileRepository
-/*    private lateinit var movie: Movie
-    private lateinit var movieGenre: MovieGenre
-    private lateinit var movieResponse: MovieResponse*/
+
     var lifecycle: Lifecycle? = null
     lateinit var viewModel: ProfileViewModel
-    var id = 1
-    var vote_count = 50
-    var popularity = 7
     lateinit var user:UserDetails
-
     @Mock
     private lateinit var observer: Observer<in String>
 
@@ -95,7 +88,7 @@ class ProfileViewModelTest {
 
 
     @Test
-    fun test_movie_details() {
+    fun test_profile_update() {
         `when`(repository.updateProfile("AA")).thenReturn(viewModel.profileUpdate("AA"))
             assertTrue( repository.updateProfile("AA") ==  viewModel.profileUpdate("AA"))
         }
