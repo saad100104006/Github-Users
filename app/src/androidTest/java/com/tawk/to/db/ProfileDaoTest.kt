@@ -14,7 +14,6 @@ open class ProfileDaoTest : DatabaseTest() {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-
     @Test
     fun updateProfileTest() {
 

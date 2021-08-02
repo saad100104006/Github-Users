@@ -14,7 +14,6 @@ open class UserDaoTest : DatabaseTest() {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-
     @Test
     fun insertUserTest() {
         val userList = listOf(

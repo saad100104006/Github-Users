@@ -34,8 +34,10 @@ class MovieDetailViewModelTest {
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
+
     @get:Rule
     var rxJavaRule: TestRule = TestRxJavaRule()
+
     @Mock
     private lateinit var favoriteDao: UserDao
     @Mock
@@ -43,8 +45,7 @@ class MovieDetailViewModelTest {
     private lateinit var repository: SearchRepository
     var lifecycle: Lifecycle? = null
     lateinit var viewModel: SearchViewModel
-    lateinit var user:UserDetails
-
+    lateinit var user: UserDetails
     @Mock
     private lateinit var observer: Observer<in String>
 
@@ -54,10 +55,8 @@ class MovieDetailViewModelTest {
     fun setUp() {
         MockitoAnnotations.initMocks(this)
         lifecycle = LifecycleRegistry(lifecycleOwner)
-
-       user  = UserDetails(User("abc",1,"testurl"), Note("abc","xyz"), Profile("abc","abc",
-      "","","abc@gmail.com",1,1))
-
+        user = UserDetails(User("abc", 1, "testurl"), Note("abc", "xyz"), Profile("abc", "abc",
+                "", "", "abc@gmail.com", 1, 1))
         repository = SearchRepository(favoriteDao)
         viewModel = SearchViewModel(repository)
     }
@@ -76,7 +75,7 @@ class MovieDetailViewModelTest {
         `when`(favoriteDao.searchUser("testQuery")).thenReturn(listOf(user))
         viewModel.updateSearchQuery("testQuery")
         viewModel.searchQueryLD.value.let {
-           assertTrue(it == "testQuery")
+            assertTrue(it == "testQuery")
         }
     }
 
