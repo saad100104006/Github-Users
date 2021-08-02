@@ -1,0 +1,14 @@
+com/facebook/shimmer/ShimmerDrawable.java
+ com.facebook.shimmer.ShimmerDrawable
+ com.facebook.shimmer.ShimmerDrawable$1
+com/facebook/shimmer/Shimmer.java
+ com.facebook.shimmer.Shimmer
+ com.facebook.shimmer.Shimmer$AlphaHighlightBuilder
+ com.facebook.shimmer.Shimmer$Builder
+ com.facebook.shimmer.Shimmer$ColorHighlightBuilder
+ com.facebook.shimmer.Shimmer$Direction
+ com.facebook.shimmer.Shimmer$Shape
+com/facebook/shimmer/BuildConfig.java
+ com.facebook.shimmer.BuildConfig
+com/facebook/shimmer/ShimmerFrameLayout.java
+ com.facebook.shimmer.ShimmerFrameLayout

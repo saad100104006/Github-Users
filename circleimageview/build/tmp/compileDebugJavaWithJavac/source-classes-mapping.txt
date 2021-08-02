@@ -1,0 +1,6 @@
+de/hdodenhof/circleimageview/CircleImageView.java
+ de.hdodenhof.circleimageview.CircleImageView
+ de.hdodenhof.circleimageview.CircleImageView$1
+ de.hdodenhof.circleimageview.CircleImageView$OutlineProvider
+de/hdodenhof/circleimageview/BuildConfig.java
+ de.hdodenhof.circleimageview.BuildConfig
