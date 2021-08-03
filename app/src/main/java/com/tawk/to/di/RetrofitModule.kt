@@ -2,10 +2,8 @@ package com.tawk.to.di
 
 import android.content.Context
 import com.google.gson.GsonBuilder
-import com.tawk.to.R
 import com.tawk.to.network.ApiService
-import com.tawk.to.utils.Constants
-import com.tawk.to.utils.Constants.Companion.API_TOKEN2
+import com.tawk.to.utils.Constants.Companion.API_TOKEN
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,7 +31,7 @@ object RetrofitModule {
             .readTimeout(50, TimeUnit.SECONDS)
             .addInterceptor { chain ->
                 val newRequest = chain.request().newBuilder()
-                    .addHeader("Authorization", "token ${Constants.API_TOKEN1+"p_g2jgApasbRF"+API_TOKEN2}")
+                    .addHeader("Authorization", "token $API_TOKEN")
                     .build()
                 chain.proceed(newRequest)
             }
