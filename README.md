@@ -1,6 +1,9 @@
 # Tawk
-In order to see the list you have to chnage the API token with your personal API token.
-Go to com.tawk.to.utils.Constants file and replace the API TOKEN with your personal token
+If you can't see any list that means the access token has been blocked by github. Github does this if we push access token in a public repository.
+Go to com.tawk.to.utils.Constants file and replace the **API_TOKEN** with your personal token if you can't see the list
+
+A Demo APK can be found in this link
+https://www.dropbox.com/s/oh4grfrx920ng93/tawk.apk?dl=0
  
 
 
