@@ -2,7 +2,9 @@ package com.tawk.to.utils
 
 class Constants {
     companion object {
-        const val API_TOKEN = "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" //replace with your token
+        const val API_TOKEN1 = "gh" //replace with your token
+        const val API_TOKEN2 = "c8R7CumuzstXYv557Eo2HmFGs" //
+
     }
 
 }
