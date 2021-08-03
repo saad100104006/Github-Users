@@ -1,6 +1,6 @@
 # Tawk
 In order to see the list you have to chnage the API token with your personal API token.
-Go to com.tawk.to.utils.Constants file and replace the API TOKEN iwth your personal token
+Go to com.tawk.to.utils.Constants file and replace the API TOKEN with your personal token
  
 
 
