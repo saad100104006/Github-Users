@@ -1,6 +1,9 @@
 # Tawk
-If the list doesn't load, that means the api token has been expired or being block. You can change the api token in this directory
-res/values/stings.xml/ api_token" =  YOUR_API_TOKEN
+In order to see the list you have to chnage the API token with your personal API token.
+Go to com.tawk.to.utils.Constants file and replace the API TOKEN iwth your personal token
+ 
+
+
 You can generate a token by following this link
 https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
