@@ -1,5 +1,6 @@
 package com.tawk.to.ui.profile
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.tawk.to.db.entity.Note
@@ -15,12 +16,15 @@ class ProfileViewModel @AssistedInject constructor(
         profileUpdate(userName)
     }
 
+    val isNoteUpdated: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
+
     val userDetails = repository.getUserDetails(userName)
 
     fun initAction(actions: Actions) {
         when (actions) {
             is UpdateNote -> {
                 repository.updateNote(Note(userName, actions.noteText))
+                isNoteUpdated.postValue(true)
             }
         }
     }

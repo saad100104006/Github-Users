@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -56,6 +57,12 @@ class ProfileFragment : Fragment() {
                 binding.nameTv.text = profile.name
                 binding.companyTv.text = profile.company
                 binding.blogTv.text = profile.blog
+            }
+        }
+
+        viewModel.isNoteUpdated.observe(viewLifecycleOwner) {
+            if(it){
+                Toast.makeText(activity,"Your note has been saved",Toast.LENGTH_SHORT).show()
             }
         }
 
