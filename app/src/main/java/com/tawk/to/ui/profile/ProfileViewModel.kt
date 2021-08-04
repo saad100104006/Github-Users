@@ -24,7 +24,9 @@ class ProfileViewModel @AssistedInject constructor(
         when (actions) {
             is UpdateNote -> {
                 repository.updateNote(Note(userName, actions.noteText))
-                isNoteUpdated.postValue(true)
+                if(actions.noteText.isNotEmpty()) {
+                    isNoteUpdated.postValue(true)
+                }
             }
         }
     }

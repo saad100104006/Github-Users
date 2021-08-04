@@ -61,9 +61,7 @@ class ProfileFragment : Fragment() {
         }
 
         viewModel.isNoteUpdated.observe(viewLifecycleOwner) {
-            if(it){
-                Toast.makeText(activity,"Your note has been saved",Toast.LENGTH_SHORT).show()
-            }
+                Toast.makeText(activity,resources.getString(R.string.note_saved),Toast.LENGTH_SHORT).show()
         }
 
 
