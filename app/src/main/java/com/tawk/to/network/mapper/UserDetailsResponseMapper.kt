@@ -6,6 +6,8 @@ import com.tawk.to.ktx.getIntegerValue
 import com.tawk.to.ktx.getStringValue
 import javax.inject.Inject
 
+// Amapper class to get user profile details
+
 class UserDetailsResponseMapper @Inject constructor() :
     NetworkResponseMapper<Profile, JsonObject> {
     override fun modelFromEntity(entity: JsonObject): Profile {

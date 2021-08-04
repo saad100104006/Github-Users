@@ -10,7 +10,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
-
+//Utility class for checking network connection
 class NetworkUtils @Inject constructor(@ApplicationContext private val context: Context) {
     fun isConnected(): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

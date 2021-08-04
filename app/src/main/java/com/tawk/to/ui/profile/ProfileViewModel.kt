@@ -27,6 +27,7 @@ class ProfileViewModel @AssistedInject constructor(
 
      fun profileUpdate(userName: String){
         repository.updateProfile(userName)
+
     }
 
     override fun onCleared() {

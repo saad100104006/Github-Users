@@ -42,6 +42,7 @@ class SearchViewHolder(private val binding: ItemUserListBinding) : RecyclerView.
         binding.userNameTv.text = "${userDetails?.user?.userName}"
         binding.noteImageView.goneIfOrVisible(userDetails?.note?.note.isNullOrEmpty())
 
+        //set avatar
         Glide.with(binding.root.context)
             .load(userDetails?.user?.avatarUrl)
             .centerCrop()

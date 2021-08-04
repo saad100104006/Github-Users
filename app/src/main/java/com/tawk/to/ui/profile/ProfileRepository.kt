@@ -25,6 +25,7 @@ class ProfileRepository @Inject constructor(
         return userDao.selectUserLiveDataByUserName(userName)
     }
 
+    //get users details from api and update in db
     fun updateProfile(userName: String) {
         api.getUserDetails(userName)
             .flatMapCompletable {
@@ -38,6 +39,7 @@ class ProfileRepository @Inject constructor(
             .addTo(compositeDisposable)
     }
 
+    //updating note in db
     fun updateNote(note: Note) {
         noteDao.upsertNote(note)
             .subscribeOn(Schedulers.io())

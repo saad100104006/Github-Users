@@ -40,6 +40,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //observe user details and set avatar
         viewModel.userDetails.observe(viewLifecycleOwner) {
             Glide.with(requireContext())
                 .load(it.user.avatarUrl)
@@ -48,6 +49,7 @@ class ProfileFragment : Fragment() {
 
             binding.noteInputLayout.editText?.text = it?.note?.note?.toEditable() ?: "".toEditable()
 
+            //apply users information
             it.profile?.let { profile ->
                 binding.followerCountTv.text = profile.followers.toString()
                 binding.followingCountTv.text = profile.following.toString()

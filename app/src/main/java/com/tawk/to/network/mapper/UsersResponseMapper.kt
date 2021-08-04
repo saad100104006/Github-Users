@@ -6,6 +6,8 @@ import com.tawk.to.ktx.getIntegerValue
 import com.tawk.to.ktx.getStringValue
 import javax.inject.Inject
 
+//a mapper class to get user name and avatar
+
 class UsersResponseMapper @Inject constructor() :
     NetworkResponseMapper<List<User>, JsonArray> {
     override fun modelFromEntity(entity: JsonArray): List<User> {

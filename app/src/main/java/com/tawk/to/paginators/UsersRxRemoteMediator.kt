@@ -11,6 +11,8 @@ import com.tawk.to.db.entity.User
 import com.tawk.to.db.entity.UserDetails
 import io.reactivex.rxjava3.core.Completable
 
+
+
 class UsersRxRemoteMediator @Inject constructor(
     private val service: Api,
     private val userDao: UserDao
@@ -33,6 +35,7 @@ class UsersRxRemoteMediator @Inject constructor(
         }
     }
 
+    //save users in db after loading them from webservice
     private fun loadAndSaveUser(since: Int = STARTING_PAGE_INDEX): Single<MediatorResult> {
         return service.getUsers(since)
             .flatMap {
