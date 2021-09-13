@@ -27,7 +27,11 @@ class SearchFragment : Fragment() {
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
     private lateinit var binding: SearchFragmentBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = SearchFragmentBinding.inflate(inflater)
         return binding.root
     }
@@ -35,15 +39,15 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // show soft keyboard on page open
-        requireView().lazyExecute {
-            binding.searchView.showKeyboard()
-        }
-
         binding.recyclerView.adapter = adapter
 
+        //observe searchedUserLiveData for search result
         viewModel.searchedUserLiveData.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
+            //call submitList for search result
+            adapter.submitList(it) {
+                //scroll to top position
+                binding.recyclerView.scrollToPosition(0)
+            }
         }
 
         // open profile fragment with debounce effect
@@ -51,11 +55,15 @@ class SearchFragment : Fragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 requireView().hideKeyboard()
-                findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToProfileFragment(it.user.userName))
+                findNavController().navigate(
+                    SearchFragmentDirections.actionSearchFragmentToProfileFragment(
+                        it.user.userName
+                    )
+                )
             }, Throwable::printStackTrace)
             .addTo(compositeDisposable)
 
-        // update live data with search text
+        // update live data with search text, call updateSearchQuery from viewmodel
         binding.searchView.queryTextChanges()
             .debounce(100, TimeUnit.MILLISECONDS)
             .observeOn(Schedulers.io())
@@ -67,7 +75,6 @@ class SearchFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         // clear all disposables
         compositeDisposable.clear()
     }

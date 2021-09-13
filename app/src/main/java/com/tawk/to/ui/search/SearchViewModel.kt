@@ -17,6 +17,7 @@ class SearchViewModel @Inject constructor(
 
      val searchQueryLD = MutableLiveData<String>()
 
+    //MediatorLiveData for search, fetch the related data from repository based on search
     val searchedUserLiveData = MediatorLiveData<List<UserDetails>>().apply {
         addSource(searchQueryLD) {
             Completable.fromAction {

@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         }.build()
 
 
+        //handle internet connectivity
         val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
         connectivityManager.registerNetworkCallback(networkRequest, object : NetworkCallback() {
             override fun onAvailable(network: Network) {

@@ -20,6 +20,7 @@ class ProfileViewModel @AssistedInject constructor(
 
     val userDetails = repository.getUserDetails(userName)
 
+    //update note if it's not empty
     fun initAction(actions: Actions) {
         when (actions) {
             is UpdateNote -> {
@@ -30,7 +31,7 @@ class ProfileViewModel @AssistedInject constructor(
             }
         }
     }
-
+    //update the profile
      fun profileUpdate(userName: String){
         repository.updateProfile(userName)
 

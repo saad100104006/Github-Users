@@ -21,6 +21,7 @@ import io.reactivex.rxjava3.kotlin.addTo
 import java.util.concurrent.TimeUnit
 import com.tawk.to.databinding.HomeFragmentBinding
 import com.tawk.to.ktx.safeExecute
+import com.tawk.to.ui.Disconnected
 
 
 @AndroidEntryPoint
@@ -57,6 +58,7 @@ class HomeFragment : Fragment() {
         activityViewModel.getNetworkStatus().observe(viewLifecycleOwner) {
             // retry failed request loading when network is available
             if (it == Connected) {
+                activityViewModel.updateNetworkStatus(Connected)
                 adapter.retry()
             }
         }

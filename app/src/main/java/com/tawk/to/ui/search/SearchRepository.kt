@@ -8,7 +8,7 @@ import javax.inject.Inject
 class SearchRepository @Inject constructor(
     private val userDao: UserDao
 ) {
-
+    //function for search query from DB
     fun searchUser(searchQuery: String): List<UserDetails> {
         return userDao.searchUser(searchQuery)
     }

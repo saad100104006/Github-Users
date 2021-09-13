@@ -15,14 +15,15 @@ class HomeRepository
     private val userDao: UserDao,
     private val usersRxRemoteMediator: UsersRxRemoteMediator,
 ) {
-    fun getUsersWithMediator(): Flowable<PagingData<UserDetails>> {
+    // getUsersWithMediator fetch the users from UsersRxRemoteMediator
+    fun getUsersWithMediator(pageSize:Int): Flowable<PagingData<UserDetails>> {
         return Pager(
             config = PagingConfig(
-                pageSize = 10,
+                pageSize =  pageSize,
                 enablePlaceholders = true,
-                maxSize = 30,
+                maxSize = pageSize + 4*pageSize,
                 prefetchDistance = 5,
-                initialLoadSize = 40
+                initialLoadSize = pageSize*2
             ),
             remoteMediator = usersRxRemoteMediator,
             pagingSourceFactory = { userDao.selectAllUserPaginated() }

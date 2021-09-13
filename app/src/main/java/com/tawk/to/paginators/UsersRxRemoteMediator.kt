@@ -21,6 +21,7 @@ class UsersRxRemoteMediator @Inject constructor(
     override fun loadSingle(loadType: LoadType, state: PagingState<Int, UserDetails>): Single<MediatorResult> {
 
         return when (loadType) {
+            //determines whether we should use loadAndSaveUser or nots
             LoadType.REFRESH -> loadAndSaveUser()
             LoadType.PREPEND -> Single.just(MediatorResult.Success(endOfPaginationReached = true))
             LoadType.APPEND -> {
@@ -40,6 +41,7 @@ class UsersRxRemoteMediator @Inject constructor(
         return service.getUsers(since)
             .flatMap {
                 Completable.fromAction {
+                    //save users in DB
                     userDao.insertMultipleUser(it)
                 }.toSingleDefault(it)
             }
