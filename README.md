@@ -73,7 +73,4 @@ https://www.dropbox.com/s/oh4grfrx920ng93/tawk.apk?dl=0
 3. MVVM Architecture.  
 4. Users list UI has been done in code and Profile - with Layout Editor. 
 5. Supports dark mode.
- 
 
-![Screenshot_1](https://user-images.githubusercontent.com/8910479/127963408-63542475-8c29-4274-b963-8013f552d6ec.jpg)
-![Screenshot_2](https://user-images.githubusercontent.com/8910479/127963421-a0a6c9a0-d3dc-4893-9cad-1bf054806ada.jpg)
